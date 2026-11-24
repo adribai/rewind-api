@@ -21,7 +21,7 @@ const listitemSchema= new mongoose.Schema({
     },
 
     addedAt:{
-        type:Data,
+        type:Date,
         default:Date.now
     }
 

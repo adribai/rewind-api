@@ -1,5 +1,5 @@
 import {Router} from "express";
-import Listitem from "../../models/listitem.model";
+import Listitem from "../../models/listitem.model.js";
 
 const router = Router();
 
