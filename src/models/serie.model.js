@@ -2,6 +2,13 @@ import mongoose from "mongoose";
 
 
 const seasonSchema=new mongoose.Schema({
+
+    seasonNumber:{
+        type:Number,
+        unique:true,
+        required:true,
+
+    },
     seasonTitle:{
         type:String,
         trim:true //eliminar espacion antes y despues
@@ -25,9 +32,11 @@ const serieSchema= new mongoose.Schema({
         required:true
     },
     serieGenre:{
-        type:String,
-        enum:['accion', 'aventura', 'romance', 'drama', 'comedia', 'terror'],
-        default:[]
+        type: [
+            { type: String,
+              enum: ['accion', 'aventura', 'romance', 'drama', 'comedia', 'terror']
+            }],
+        default: []
     },
     serieSinopsis:{
         type:String,
@@ -38,8 +47,9 @@ const serieSchema= new mongoose.Schema({
         min:1900,
         max:2100
     },
-    seasons:[seasonSchema] // para relacion 1-n [], si fuera 1-1 estaria sin []
-
+    seasons:[seasonSchema], // para relacion 1-n [], si fuera 1-1 estaria sin []
+    available: { type: Boolean, default: true }
+    
 },{ timestamps: true } //createdAt y updatedAt automaticos
 );
 
