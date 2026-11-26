@@ -5,8 +5,8 @@ const seasonSchema=new mongoose.Schema({
 
     seasonNumber:{
         type:Number,
-        unique:true,
         required:true,
+        min:1
 
     },
     seasonTitle:{

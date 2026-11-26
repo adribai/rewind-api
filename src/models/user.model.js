@@ -35,7 +35,7 @@ userRole: {
     toJSON: {
       // Al convertir a JSON (res.json) quitamos la contraseña y __v
       transform: (_doc, ret) => {
-        const { password, __v, ...user } = ret;
+        const { userPassword, __v, ...user } = ret;
         return user;
       },
     },
