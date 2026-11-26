@@ -27,6 +27,10 @@ const getById= async(id)=>{
     return user;
 };
 
+const getByEmail = async (email) => {
+  return User.findOne({ userEmail: email.toLowerCase() }).select("+userPassword");
+};
+
 
 // _________________ UPDATE
 
@@ -82,6 +86,7 @@ export default {
     getAll,
     getById,
     getById,
+    getByEmail,
     update,
     modify,
     remove
